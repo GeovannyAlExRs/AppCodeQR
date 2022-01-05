@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>CODE QR</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<h2>Generar Codigo QR</h2>
+		<form th:object="${codeqr}"  th:action="@{/codeqr/generateQR}" method="post" autocomplete="off">
+			<div class="form-group">
+                <label for="mobile">Codigo de registro:</label> 
+                <input th:field="${codeqr.code}" type="text"class="form-control" id="mobile"
+					placeholder="Enter Codigo de registro" name="name"
+					required="required">
+            </div>
+            <div class="form-group form-floating-label"> <!-- th:disabled="${disableFields}" -->
+                <label for="selectFloatingLabel" class="placeholder">Seleccione el Número Disco</label>
+                <input th:field="${codeqr.disc_bus}" type="int"class="form-control" id="mobile"
+					placeholder="Enter Codigo de registro" name="name"
+					required="required">
+            </div>
+			<div class="form-group">
+                <label for="mobile">Descripcion :</label> 
+                <input th:field="${codeqr.description}" type="text" class="form-control" id="mobile" placeholder="Enter"
+					name="mobile" required="required">
+			</div>
+			
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+
+</body>
+</html>
